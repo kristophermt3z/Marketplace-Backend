@@ -1,7 +1,7 @@
 # Marketplace-Backend
 
 ## Link de Producción
-Visita la versión en producción del frontend aquí: [Marketplace Frontend](https://marketplace-salvadormartinez.netlify.app/)
+Visita la versión en producción aquí: [Marketplace](https://marketplace-salvadormartinez.netlify.app/)
 
 ## Descripción
 Este es el backend para un marketplace, implementado usando Node.js, Express y TypeORM. Este backend proporciona APIs para manejar operaciones relacionadas con vendedores y otros recursos del marketplace.
