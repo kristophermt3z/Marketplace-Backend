@@ -9,8 +9,6 @@ Este es el backend para un marketplace, implementado usando Node.js, Express y T
 ## Requisitos Previos
 Antes de comenzar, asegúrate de tener instalado Node.js en tu sistema. Este proyecto también utiliza PostgreSQL como sistema de base de datos, por lo que deberás tener PostgreSQL instalado y configurado adecuadamente.
 
-- **Frontend**: [Frontend en GitHub](https://github.com/salvadormartin3z/Marketplace-Frontend)
-
 ## Instalación
 Para instalar y configurar el proyecto localmente, sigue estos pasos:
 
@@ -37,6 +35,9 @@ Para instalar y configurar el proyecto localmente, sigue estos pasos:
     ```bash
     npm start
     ```
+
+5. También necesitarás instalar y configurar el frontend del proyecto para una funcionalidad completa:
+- **Frontend**: [Frontend en GitHub](https://github.com/salvadormartin3z/Marketplace-Frontend)
 
 ## Contacto
 
