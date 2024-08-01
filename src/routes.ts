@@ -1,7 +1,8 @@
 import { Router } from "express";
-import { VendedorController } from "./controller/VendedorController";
+import { createVendedor, getAllVendedores } from "./controller/VendedorController";
 
 
 export const routes = (router: Router) => {
-  router.post('/crear-vendedores', VendedorController.createVendedor);
+  router.post('/crear-vendedores', createVendedor);
+  router.get('/vendedores', getAllVendedores);
 };
