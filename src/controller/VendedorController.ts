@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { AppDataSource } from "../data-source";
 import { vendedores } from "../entity/vendedor";
 import bcryptjs from "bcryptjs";
+import jwt from "jsonwebtoken";
 
 export const createVendedor = async (req: Request, res: Response) => {
     const { email, password } = req.body;
@@ -32,3 +33,35 @@ export const createVendedor = async (req: Request, res: Response) => {
         res.status(500).send("Error interno del servidor.");
     }
 };
+
+export const loginVendedor = async (req: Request, res: Response) => {
+    const { email, password } = req.body;
+    console.log('second')
+  
+    if (!(email && password)) {
+      res.status(400).send("Both email and password are required.");
+      return;
+    }
+  
+    const vendedorRepository = AppDataSource.getRepository(vendedores);
+    const vendedor = await vendedorRepository.findOneBy({ email });
+  
+    if (!vendedor) {
+      res.status(404).send("User not found.");
+      return;
+    }
+  
+    const isPasswordValid = await bcryptjs.compare(password, vendedor.password);
+  
+    if (!isPasswordValid) {
+      res.status(401).send("Incorrect password.");
+      return;
+    }
+  
+    // Create a token
+    const token = jwt.sign({ id: vendedor.id, role: vendedor.role }, process.env.JWT_SECRET as string, {
+      expiresIn: "1h",
+    });
+  
+    res.json({ message: "Login successful", token });
+  };
