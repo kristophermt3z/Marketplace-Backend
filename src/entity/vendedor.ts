@@ -17,4 +17,10 @@ export class vendedores {
         nullable: false
     })
     password!: string;
+
+    @Column({
+        type: "varchar",
+        default: "vendedor" 
+    })
+    role!: string;
 }
