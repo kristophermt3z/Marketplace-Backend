@@ -26,7 +26,20 @@ export const createVendedor = async (req: Request, res: Response) => {
     vendedor.role = "vendedor";
 
     await vendedorRepository.save(vendedor);
-    res.status(201).send("Seller created successfully.");
+    
+    const token = jwt.sign(
+      { id: vendedor.id, role: vendedor.role },
+      process.env.JWT_SECRET as string,
+      {
+        expiresIn: "1h",
+      }
+    );
+
+    res.status(201).json({
+      message: "Seller created successfully.",
+      token,
+      role: vendedor.role,
+    });
   } catch (error) {
     console.error("Error creating seller:", error);
     res.status(500).send("Internal server error.");
