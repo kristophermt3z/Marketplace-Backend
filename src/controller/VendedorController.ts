@@ -20,7 +20,7 @@ export const createProduct = async (req: CustomRequest, res: Response) => {
     productCreate.sku = sku;
     productCreate.quantity = quantity;
     productCreate.price = price;
-    productCreate.seller = { id: userId } as vendedores; // Only need ID for relation
+    productCreate.seller = { id: userId } as vendedores; 
 
     await productRepository.save(productCreate);
     res.status(201).send("Product created successfully.");

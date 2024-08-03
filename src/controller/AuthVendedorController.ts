@@ -56,7 +56,6 @@ export const loginVendedor = async (req: Request, res: Response) => {
     return;
   }
 
-  // Create a token
   const token = jwt.sign(
     { id: vendedor.id, role: vendedor.role },
     process.env.JWT_SECRET as string,
