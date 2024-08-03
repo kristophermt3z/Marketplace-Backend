@@ -65,5 +65,5 @@ export const loginVendedor = async (req: Request, res: Response) => {
     }
   );
 
-  res.json({ message: "Login successful", token });
+  res.json({ message: "Login successful", token, role: vendedor.role });
 };
