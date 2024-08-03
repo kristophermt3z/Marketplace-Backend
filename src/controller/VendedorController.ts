@@ -1,4 +1,4 @@
-import { Request, Response } from "express";
+import { Response } from "express";
 import { AppDataSource } from "../data-source";
 import { product } from "../entity/Product.entity";
 import { vendedores } from "../entity/vendedor";
