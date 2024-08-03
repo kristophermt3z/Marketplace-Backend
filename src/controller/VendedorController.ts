@@ -7,7 +7,7 @@ import { CustomRequest } from "../middleware/authenticateToken.middleware"
 export const createProduct = async (req: CustomRequest, res: Response) => {
   const { name, sku, quantity, price } = req.body;
   const userId = req.user?.id; 
-
+    console.log('first')
   if (!name || !sku || !quantity || !price) {
     return res.status(400).send("All fields are required (name, sku, quantity, price).");
   }

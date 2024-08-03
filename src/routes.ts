@@ -7,6 +7,6 @@ import { createProduct, getProductsForSeller } from "./controller/VendedorContro
 export const routes = (router: Router) => {
   router.post('/crear-vendedores', createVendedor);
   router.post('/login', loginVendedor);
-  router.post('/products',authenticateToken, createProduct);
+  router.post('/create-products',authenticateToken, createProduct);
   router.get('/products', authenticateToken, getProductsForSeller);
 };
