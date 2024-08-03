@@ -1,69 +1,47 @@
 import { Request, Response } from "express";
 import { AppDataSource } from "../data-source";
+import { product } from "../entity/Product.entity";
 import { vendedores } from "../entity/vendedor";
-import bcryptjs from "bcryptjs";
-import jwt from "jsonwebtoken";
+import { CustomRequest } from "../middleware/authenticateToken.middleware"
 
-export const createVendedor = async (req: Request, res: Response) => {
-  const { email, password } = req.body;
+export const createProduct = async (req: CustomRequest, res: Response) => {
+  const { name, sku, quantity, price } = req.body;
+  const userId = req.user?.id; 
 
-  if (!(email && password)) {
-    res.status(404).send("All fields are required (email and password).");
-    return;
+  if (!name || !sku || !quantity || !price) {
+    return res.status(400).send("All fields are required (name, sku, quantity, price).");
   }
-  const vendedorRepository = AppDataSource.getRepository(vendedores);
 
-  const existingVendedor = await vendedorRepository.findOneBy({ email });
-  if (existingVendedor) {
-    res.status(404).send("A seller with this email already exists.");
-    return;
-  }
+  const productRepository = AppDataSource.getRepository(product);
 
   try {
-    const vendedor = new vendedores();
-    vendedor.email = email;
-    vendedor.password = await bcryptjs.hash(password, 10);
-    vendedor.role = "vendedor";
+    const productCreate = new product();
+    productCreate.name = name;
+    productCreate.sku = sku;
+    productCreate.quantity = quantity;
+    productCreate.price = price;
+    productCreate.seller = { id: userId } as vendedores; // Only need ID for relation
 
-    await vendedorRepository.save(vendedor);
-    res.status(201).send("Seller created successfully.");
+    await productRepository.save(productCreate);
+    res.status(201).send("Product created successfully.");
   } catch (error) {
-    console.error("Error creating seller:", error);
+    console.error("Error creating product:", error);
     res.status(500).send("Internal server error.");
   }
 };
 
-export const loginVendedor = async (req: Request, res: Response) => {
-  const { email, password } = req.body;
-
-  if (!(email && password)) {
-    res.status(404).send("Both email and password are required.");
-    return;
-  }
-
-  const vendedorRepository = AppDataSource.getRepository(vendedores);
-  const vendedor = await vendedorRepository.findOneBy({ email });
-
-  if (!vendedor) {
-    res.status(404).send("User not found.");
-    return;
-  }
-
-  const isPasswordValid = await bcryptjs.compare(password, vendedor.password);
-
-  if (!isPasswordValid) {
-    res.status(404).send("Incorrect password.");
-    return;
-  }
-
-  // Create a token
-  const token = jwt.sign(
-    { id: vendedor.id, role: vendedor.role },
-    process.env.JWT_SECRET as string,
-    {
-      expiresIn: "1h",
+export const getProductsForSeller = async (req: CustomRequest, res: Response) => {
+    const userId = req.user?.id;
+  
+    const productRepository = AppDataSource.getRepository(product);
+  
+    try {
+      const products = await productRepository.find({
+        where: { seller: { id: userId } },
+      });
+      res.json(products);
+    } catch (error) {
+      console.error("Error fetching products:", error);
+      res.status(500).send("Internal server error.");
     }
-  );
-
-  res.json({ message: "Login successful", token, role: vendedor.role });
-};
+  };
