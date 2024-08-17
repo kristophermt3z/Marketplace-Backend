@@ -29,7 +29,7 @@ To install and set up the project locally, follow these steps:
    Create a .env file in the root of the project with the following environment variables necessary for the database connection and other important configurations.
 
     ```bash
-    DATABASE_URL=postgresql://tu_usuario:tu_contraseña@tu_host:tu_puerto/tu_base_de_datos?ssl=true
+    DATABASE_URL=postgresql://your_user:your_password@your_host:your_port/your_database?ssl=true
     ```
     ```bash
     JWT_SECRET=exampleSecretToken
