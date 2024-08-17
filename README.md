@@ -3,55 +3,55 @@
 ## Overview
 Marketplace Application - [Functional Documentation](https://github.com/salvadormartin3z/Marketplace/blob/main/README.md)
 
-## Link de Producción
-Visita la versión en producción aquí: [Marketplace](https://marketplace-salvadormartinez.netlify.app/)
+## Production Link
+Visit the production version here: [Marketplace](https://marketplace-salvadormartinez.netlify.app/)
 
-## Descripción
-Este es el backend para un marketplace, implementado usando Node.js, Express y TypeORM. Este backend proporciona APIs para manejar operaciones relacionadas con vendedores y otros recursos del marketplace.
+## Description
+This is the backend for a marketplace, implemented using Node.js, Express, and TypeORM. This backend provides APIs to handle operations related to sellers and other marketplace resources.
 
-## Requisitos Previos
-Antes de comenzar, asegúrate de tener instalado Node.js en tu sistema. Este proyecto también utiliza PostgreSQL como sistema de base de datos, por lo que deberás tener PostgreSQL instalado y configurado adecuadamente.
+## Prerequisites
+Before getting started, make sure you have Node.js installed on your system. This project also uses PostgreSQL as the database system, so you need to have PostgreSQL installed and properly configured.
 
-## Instalación
-Para instalar y configurar el proyecto localmente, sigue estos pasos:
+## Installation
+To install and set up the project locally, follow these steps:
 
-1. Clona el repositorio:
+1. Clone the repository:
    ```bash
    git clone https://github.com/salvadormartin3z/Marketplace-Backend.git
    cd Marketplace-Backend
 
-2. Instala las dependencias:
+2. Install the dependencies:
     ```bash
     npm install
     ```
 
-3. Configura las variables de entorno:
-    Crea un archivo .env en la raíz del proyecto con las siguientes variables de entorno necesarias para la conexión a la base de datos y otras configuraciones importantes.
+3. Set up environment variables:
+   Create a .env file in the root of the project with the following environment variables necessary for the database connection and other important configurations.
 
     ```bash
     DATABASE_URL=postgresql://tu_usuario:tu_contraseña@tu_host:tu_puerto/tu_base_de_datos?ssl=true
     ```
 
-    Nota: Por motivos de seguridad, el archivo .env no se incluye en el repositorio y no debe ser compartido. Cada desarrollador o usuario que despliegue el proyecto debe crear su propio archivo .env.
+   Note: For security reasons, the .env file is not included in the repository and should not be shared. Each developer or user deploying the project must create their own .env file.
 
-4. Inicia el servidor:
+4. Start the server:
     ```bash
     npm start
     ```
 
-5. También necesitarás instalar y configurar el frontend del proyecto para una funcionalidad completa:
+5. You will also need to install and set up the project's frontend for full functionality:
 - **Frontend**: [Frontend en GitHub](https://github.com/salvadormartin3z/Marketplace-Frontend)
 
-## Contacto
+## Contact
 
-Puedes encontrarme y contactarme a través de las siguientes plataformas:
+You can find and contact me through the following platforms:
 
 - **Portafolio**: [Salvador Martínez - Portafolio](https://salvadormartin3z.netlify.app/)
 - **LinkedIn**: [Salvador Martínez en LinkedIn](https://www.linkedin.com/in/salvadormtz/)
 - **GitHub**: [Salvador Martínez en GitHub](https://github.com/salvadormartin3z)
 
-## Contribuir
-Si deseas contribuir al proyecto, considera hacer fork del repositorio y enviar tus pull requests. También puedes abrir issues si encuentras problemas o tienes sugerencias de mejoras.
+## Contributing
+If you want to contribute to the project, consider forking the repository and submitting your pull requests. You can also open issues if you find any problems or have suggestions for improvements.
 
-## Licencia
-Este proyecto está licenciado bajo la Licencia MIT. Consulta el archivo LICENSE en este repositorio para más detalles.
+## License
+This project is licensed under the MIT License. See the LICENSE file in this repository for more details.
