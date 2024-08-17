@@ -31,6 +31,9 @@ To install and set up the project locally, follow these steps:
     ```bash
     DATABASE_URL=postgresql://tu_usuario:tu_contraseña@tu_host:tu_puerto/tu_base_de_datos?ssl=true
     ```
+    ```bash
+    JWT_SECRET=exampleSecretToken
+    ```
 
    Note: For security reasons, the .env file is not included in the repository and should not be shared. Each developer or user deploying the project must create their own .env file.
 
