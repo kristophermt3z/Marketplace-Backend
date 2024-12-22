@@ -3,9 +3,6 @@
 ## Overview
 Marketplace Application - [Functional Documentation](https://github.com/salvadormartin3z/Marketplace/blob/main/README.md)
 
-## Production Link
-Visit the production version here: [Marketplace](https://marketplace-salvadormartinez.netlify.app/)
-
 ## Description
 This is the backend for a marketplace, implemented using Node.js, Express, and TypeORM. This backend provides APIs to handle operations related to sellers and other marketplace resources.
 
