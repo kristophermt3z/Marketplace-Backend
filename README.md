@@ -1,7 +1,7 @@
 # Marketplace-Backend - Technical documentation
 
 ## Overview
-Marketplace Application - [Functional Documentation](https://github.com/kristophermt3z/Marketplace/blob/main/README.md)
+Marketplace Application - [Functional Documentation](https://github.com/kristophermt3z/Marketplace)
 
 ## Description
 This is the backend for a marketplace, implemented using Node.js, Express, and TypeORM. This backend provides APIs to handle operations related to sellers and other marketplace resources.
